@@ -141,6 +141,12 @@ type mouse_button =
   | Middle_button
   | Right_button
 
+class type ['node] collection = object
+  method length : int 
+  method item : int -> 'node t null 
+  method namedItem : string -> 'node t null 
+end [@bs]
+
 class type event = object
   inherit [element] Dom.event
 end [@bs]
@@ -323,6 +329,8 @@ and element = object
   method outerHTML : string 
   method textContent : string null 
 
+  method children : (element t) collection t (*add from jsoo*)
+
   method clientLeft : int 
   method clientTop : int 
   method clientWidth : int 
@@ -362,12 +370,6 @@ and clientRectList = object
 end [@bs]
 
 type event_listener_id = Dom.event_listener_id
-
-class type ['node] collection = object
-  method length : int 
-  method item : int -> 'node t null 
-  method namedItem : string -> 'node t null 
-end [@bs]
 
 class type htmlElement = element
 

@@ -1,6 +1,6 @@
 {
   "name": "bs-dom",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A dom binding for bucklescript",
   "scripts": {
     "postinstall": "bash scripts/install.sh"
@@ -14,7 +14,7 @@
     "bucklescript",
     "map"
   ],
-  "author": "zat",
+  "author": "0zat",
   "license": "GPL v2",
   "bugs": {
     "url": "https://github.com/0zat/bs-dom.git"
