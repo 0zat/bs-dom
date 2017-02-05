@@ -1,6 +1,6 @@
 {
   "name": "bs-dom",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A dom binding for bucklescript",
   "scripts": {
     "postinstall": "bash scripts/install.sh"
