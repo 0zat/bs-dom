@@ -58,7 +58,10 @@ class type node = object
   method lastChild : node t null 
   method previousSibling : node t null 
   method nextSibling : node t null 
-  method namespaceURI : string null 
+  method namespaceURI : string null
+  
+  method isSameNode : node t -> boolean (*added from jsoo*) 
+  method textContent : string null (*moved from element*)
 
   method insertBefore : node t -> node t null -> node t 
   method replaceChild : node t -> node t -> node t 

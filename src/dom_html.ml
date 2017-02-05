@@ -327,9 +327,8 @@ and element = object
 
   method innerHTML : string 
   method outerHTML : string 
-  method textContent : string null 
 
-  method children : (element t) collection t (*add from jsoo*)
+  method children : element collection t (*add from jsoo*)
 
   method clientLeft : int 
   method clientTop : int 
@@ -1135,6 +1134,9 @@ class type window = object
   method blur : unit -> unit
   method scroll : int -> int -> unit 
   method scrollBy : int -> int -> unit 
+
+  method scrollX : int (* add from jsoo *)
+  method scrollY : int (* add from jsoo *)
 
   method sessionStorage : storage t undefined 
   method localStorage : storage t undefined 
