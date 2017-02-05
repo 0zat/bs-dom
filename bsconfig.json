@@ -1,0 +1,16 @@
+{
+    "name": "bs-dom",
+    "version": "0.0.1",
+    "sources": {
+        "dir": "src",
+        "public": "all",
+        "files": [
+            "util.ml",
+            "typed_array.ml",
+            "file.ml",
+            "dom.ml",
+            "dom_html.ml"
+        ]
+    },
+    "generate-merlin" : true
+}
