@@ -37,7 +37,6 @@ module Convert_keyword = struct
   let replace_null_undef str = replace !!"null undefined" !?"null_undefined" str
 
   let replace_Unsafe str = replace "Js\\.Unsafe\\." "" str
-  let replace_callback str = replace ("("^ "\\(.*\\)" ^") Js\\.callback") "(\\1 [@bs])" str
   let replace_class_end str = replace "^end" "end [@bs]" str
 
   let replace_all str =
@@ -52,7 +51,6 @@ module Convert_keyword = struct
     |> replace_def
     |> replace_null_undef
     |> replace_Unsafe
-    |> replace_callback
 
 end
 

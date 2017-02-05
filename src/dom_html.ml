@@ -21,10 +21,10 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
- *)
+*)
 
 type any = < > Js.t
-
+type 'a callback = (unit, 'a) Js.meth_callback
 (* the below codes are extraced and converted from jsoo *)
 open Js
 
@@ -1147,14 +1147,14 @@ class type window = object
   method prompt : string -> string -> string null 
   method print : unit -> unit
 
-  method setInterval : (unit -> unit [@bs]) -> float -> interval_id 
+  method setInterval : (unit -> unit) callback -> float -> interval_id 
   method clearInterval : interval_id -> unit 
 
-  method setTimeout : (unit -> unit [@bs]) -> float -> timeout_id 
+  method setTimeout : (unit -> unit) callback -> float -> timeout_id 
   method clearTimeout : timeout_id -> unit 
 
   method requestAnimationFrame :
-    (float -> unit [@bs]) -> animation_frame_request_id 
+    (float -> unit) callback -> animation_frame_request_id 
   method cancelAnimationFrame : animation_frame_request_id -> unit 
 
   method screen : screen t 
@@ -1298,6 +1298,25 @@ type timeout_id_safe = timeout_id option ref
 
 external document : document Js.t = "" [@@bs.val]
 external window : window Js.t = "" [@@bs.val]
+
+let cast_node (node : Dom.node Js.t) =
+  let open Bs_dom_util in
+  let node_type = node##nodeType in
+  let node = (node :> < > Js.t) in
+  match node_type with
+  | Dom.OTHER -> `OTHER (cast node : Dom.node Js.t)
+  | Dom.ELEMENT -> `ELEMENT(cast node : element Js.t)
+  | Dom.ATTRIBUTE -> `ATTRIBUTE(cast node : Dom.attr Js.t)
+  | Dom.TEXT -> `TEXT(cast node : Dom.characterData Js.t)
+  | Dom.CDATA_SECTION -> `CDATA_SECTION(cast node : Dom.characterData Js.t)
+  | Dom.ENTITY_REFERENCE -> `ENTITY_REFERENCE(cast node : Dom.node Js.t)
+  | Dom.ENTITY -> `ENTITY(cast node : Dom.node Js.t)
+  | Dom.PROCESSING_INSTRUCTION -> `PROCESSING_INSTRUCTION(cast node : Dom.node Js.t)
+  | Dom.COMMENT -> `COMMENT(cast node : Dom.characterData Js.t)
+  | Dom.DOCUMENT -> `DOCUMENT(cast node : document Js.t)
+  | Dom.DOCUMENT_TYPE -> `DOCUMENT_TYPE(cast node : Dom.node Js.t)
+  | Dom.DOCUMENT_FRAGMENT -> `DOCUMENT_FRAGMENT(cast node : Dom.documentFragment Js.t)
+  | Dom.NOTATION -> `NOTATION(cast node : Dom.node Js.t)
 
 let cast_element (element : element Js.t) =
   let open Bs_dom_util in

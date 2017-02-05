@@ -143,12 +143,6 @@ class type ['element] document = object
   method adoptNode : element t -> 'element t 
 end [@bs]
 
-type node_type =
-  | Element of element t
-  | Attr of attr t
-  | Text of text t
-  | Other of node t
-
 type ('a, 'b) event_listener = ('a, 'b -> boolean) meth_callback null
 
 class type ['a] event = object
