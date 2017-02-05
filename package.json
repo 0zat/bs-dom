@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/0zat/Bs_dom.git"
   },
   "keywords": [
     "ocaml",
@@ -17,9 +17,9 @@
   "author": "zat",
   "license": "GPL",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/0zat/Bs_dom.git"
   },
-  "homepage": "",
+  "homepage": "https://github.com/0zat/Bs_dom.git",
   "dependencies": {
     "bs-platform" : "^1.3.3"
   }
