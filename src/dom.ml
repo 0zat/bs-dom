@@ -23,8 +23,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  *)
 
-
-
 type documentPosition = int
 
 (* the below codes are extraced and converted from jsoo *)

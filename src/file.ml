@@ -94,7 +94,8 @@ end [@bs]
 
 
 let get_result (result : file_any) =
+  let open Bs_dom_util in
   if Js.typeof result = "string" then
-    `String (Util.cast result : string)
+    `String (cast result : string)
   else
-    `ArrayBuffer (Util.cast result : Typed_array.arrayBuffer Js.t)
+    `ArrayBuffer (cast result : Typed_array.arrayBuffer Js.t)

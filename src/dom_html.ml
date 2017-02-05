@@ -25,7 +25,6 @@
 
 type any = < > Js.t
 
-
 (* the below codes are extraced and converted from jsoo *)
 open Js
 
@@ -1297,12 +1296,11 @@ type timeout_id_safe = timeout_id option ref
 
 (* the above codes are extraced and converted from jsoo *)
 
-
 external document : document Js.t = "" [@@bs.val]
 external window : window Js.t = "" [@@bs.val]
 
 let cast_element (element : element Js.t) =
-  let open Util in
+  let open Bs_dom_util in
   let tagname = element##tagName in
   let element = (element :> < > Js.t) in
   match tagname with

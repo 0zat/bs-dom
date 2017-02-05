@@ -13,4 +13,4 @@ mkdir -p lib/ocaml
 cp ./src/*.cm* ./lib/ocaml 
 
 # hide module
-rm ./lib/ocaml/util.cmi 
+rm ./lib/ocaml/bs_dom_util.cmi 
