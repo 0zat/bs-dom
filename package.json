@@ -1,6 +1,6 @@
 {
   "name": "bs-dom",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A dom binding for bucklescript",
   "scripts": {
     "postinstall": "bash scripts/install.sh"
@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/0zat/bs-dom.git",
   "dependencies": {
-
+    "bs-platform" : "^1.4.2"
   }
 }
