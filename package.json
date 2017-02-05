@@ -7,7 +7,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/0zat/Bs_dom.git"
+    "url": "git+https://github.com/0zat/Bs_dom.git"
   },
   "keywords": [
     "ocaml",
