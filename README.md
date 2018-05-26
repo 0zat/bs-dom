@@ -1,3 +1,7 @@
+***This package has been deprecated  
+this library is immature and not maintained anymore.   
+please use another package such as bs-webapi(https://redex.github.io/package/bs-webapi)***
+
 # bs-dom
 
 bs-dom is a DOM library for [BuckleScript](https://github.com/bloomberg/bucklescript).  
